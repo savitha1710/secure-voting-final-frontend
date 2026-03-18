@@ -1,0 +1,184 @@
+/* ── Signup.css — Online Voting System · Facial Recognition ── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap');
+
+/* ── Root / Page ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #eaf3fb;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 64px;
+}
+
+/* ── Container Card ────────────────────────────────────────── */
+.signup-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 44px 48px 52px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow:
+    0 4px 6px rgba(30, 90, 160, 0.06),
+    0 12px 40px rgba(30, 90, 160, 0.10);
+}
+
+/* no decorative blobs */
+
+/* ── Heading ───────────────────────────────────────────────── */
+.signup-container h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0d2b4e;
+  letter-spacing: -0.4px;
+  margin-bottom: 4px;
+}
+
+.signup-sub {
+  font-size: 0.875rem;
+  color: #6b87a2;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* ── Form ──────────────────────────────────────────────────── */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #dde8f2;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #0d2b4e;
+  background: #f5f9fd;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+
+.signup-form input::placeholder {
+  color: #9ab2c8;
+  font-weight: 400;
+}
+
+.signup-form input:focus {
+  border-color: #3a8fd4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(58, 143, 212, 0.14);
+}
+
+/* ── Face Capture Section ──────────────────────────────────── */
+.signup-form > div[style] {
+  border: 1.5px dashed #a8c8e8 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  background: #f0f7fc !important;
+  transition: border-color 0.2s ease;
+}
+
+.signup-form > div[style]:hover {
+  border-color: #3a8fd4 !important;
+}
+
+/* ── Button ────────────────────────────────────────────────── */
+.signup-form button[type='submit'] {
+  margin-top: 6px;
+  padding: 13px;
+  background: linear-gradient(135deg, #2e7bcf 0%, #1a5aa8 100%);
+  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(30, 90, 195, 0.28);
+}
+
+.signup-form button[type='submit']:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 90, 195, 0.36);
+}
+
+.signup-form button[type='submit']:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.signup-form button[type='submit']:disabled {
+  background: linear-gradient(135deg, #9ab5d4 0%, #7a9fc0 100%);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Feedback Messages ─────────────────────────────────────── */
+.signup-form .error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  background: #fff0ef;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin: 0;
+}
+
+.signup-form .success {
+  font-size: 0.82rem;
+  color: #1a6e3c;
+  background: #edfaf3;
+  border: 1px solid #b2dfc5;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin: 0;
+}
+
+/* ── Footer Link ───────────────────────────────────────────── */
+.signup-form .small {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #6b87a2;
+  margin-top: 2px;
+}
+
+.signup-form .link {
+  color: #2e7bcf;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.signup-form .link:hover {
+  color: #1a5aa8;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .signup-container {
+    padding: 32px 24px 40px;
+    border-radius: 16px;
+  }
+
+  .signup-container h2 {
+    font-size: 1.45rem;
+  }
+}

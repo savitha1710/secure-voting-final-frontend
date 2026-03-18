@@ -1,0 +1,339 @@
+/* ── VotingPage.css — Online Voting System ── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #eaf3fb;
+  min-height: 100vh;
+  padding: 40px 24px 60px;
+  color: #0d2b4e;
+}
+
+/* ── Page wrapper ── */
+.vote-container {
+  max-width: 4000px;
+  margin: 0 auto;
+}
+
+/* ── Top navbar bar ── */
+.vote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(30, 90, 160, 0.08);
+  border: 1px solid #dde8f2;
+}
+
+.vote-header h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0d2b4e;
+  letter-spacing: -0.3px;
+}
+
+.vote-header h2 span {
+  color: #2e7bcf;
+}
+
+/* ── Logout button ── */
+.logout-btn {
+  padding: 9px 22px;
+  background: transparent;
+  border: 1.5px solid #dde8f2;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6b87a2;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.logout-btn:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+  background: #fff5f5;
+}
+
+/* ── Two-column layout ── */
+.vote-body {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Shared card style ── */
+.vote-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 36px 40px;
+  box-shadow: 0 4px 6px rgba(30, 90, 160, 0.06),
+              0 12px 40px rgba(30, 90, 160, 0.10);
+  border: 1px solid #dde8f2;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Left panel: voting info ── */
+.vote-info-card {
+  animation-delay: 0.05s;
+}
+
+.vote-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(46, 123, 207, 0.08);
+  border: 1px solid #c8dff0;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2e7bcf;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.vote-info-card h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0d2b4e;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.vote-info-card p {
+  font-size: 0.88rem;
+  color: #6b87a2;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── Step indicators ── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.step-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2e7bcf, #1a5aa8);
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(46, 123, 207, 0.3);
+}
+
+.step-text strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #0d2b4e;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.step-text span {
+  font-size: 0.8rem;
+  color: #9ab2c8;
+}
+
+/* ── Right panel: voting form ── */
+.vote-form-card {
+  animation-delay: 0.1s;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0d2b4e;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.83rem;
+  color: #6b87a2;
+  margin-bottom: 22px;
+}
+
+/* ── Candidate list ── */
+.candidate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.candidate-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  border: 1.5px solid #dde8f2;
+  border-radius: 12px;
+  background: #f5f9fd;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.15s;
+  user-select: none;
+}
+
+.candidate-card:hover {
+  border-color: #3a8fd4;
+  background: #eef6fc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(58, 143, 212, 0.12);
+}
+
+.candidate-card.selected {
+  border-color: #2e7bcf;
+  background: #e3f0fb;
+  box-shadow: 0 4px 16px rgba(46, 123, 207, 0.18);
+}
+
+/* custom radio */
+.candidate-card input[type='radio'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #9ab2c8;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+  position: relative;
+}
+
+.candidate-card input[type='radio']::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #2e7bcf;
+  transition: transform 0.2s ease;
+}
+
+.candidate-card input[type='radio']:checked { border-color: #2e7bcf; }
+.candidate-card input[type='radio']:checked::after { transform: translate(-50%, -50%) scale(1); }
+
+.candidate-card > div {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex: 1;
+}
+
+.candidate-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0d2b4e;
+  font-family: 'Sora', sans-serif;
+}
+
+.party {
+  font-size: 0.8rem;
+  color: #6b87a2;
+}
+
+/* ── Submit button ── */
+.vote-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2e7bcf 0%, #1a5aa8 100%);
+  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(30, 90, 195, 0.25);
+}
+
+.vote-btn:hover:not(:disabled) {
+  opacity: 0.91;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 90, 195, 0.34);
+}
+
+.vote-btn:active:not(:disabled) { transform: translateY(0); }
+
+.vote-btn:disabled {
+  background: linear-gradient(135deg, #9ab5d4, #7a9fc0);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Feedback messages ── */
+.error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  background: #fff0ef;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin-bottom: 12px;
+}
+
+.success {
+  font-size: 0.9rem;
+  color: #1a6e3c;
+  background: #edfaf3;
+  border: 1px solid #b2dfc5;
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .vote-body {
+    grid-template-columns: 1fr;
+  }
+
+  .vote-header {
+    padding: 14px 20px;
+  }
+
+  .vote-card {
+    padding: 26px 22px 32px;
+    border-radius: 16px;
+  }
+
+  .vote-info-card h1 { font-size: 1.4rem; }
+}

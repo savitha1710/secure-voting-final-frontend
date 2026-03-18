@@ -1,0 +1,225 @@
+/* ── Login.css — Online Voting System · Facial Recognition ── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@400;600;700&display=swap');
+
+/* ── Root / Page ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #eaf3fb;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+/* ── Container Card ────────────────────────────────────────── */
+.login-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 44px 48px 52px;
+  width: 100%;
+  max-width: 460px;
+  
+  box-shadow:
+    0 4px 6px rgba(30, 90, 160, 0.06),
+    0 12px 40px rgba(30, 90, 160, 0.10);
+  text-align: center;
+  /* removed: position relative, overflow hidden (were needed for blobs) */
+}
+
+/* ── REMOVED: decorative blob ::before and ::after ── */
+
+/* ── Heading ───────────────────────────────────────────────── */
+.login-container h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0d2b4e;
+  letter-spacing: -0.4px;
+  margin-bottom: 24px;
+}
+
+/* ── Tab Row ───────────────────────────────────────────────── */
+.tab-row {
+  display: flex;
+  margin-bottom: 28px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #dde8f2;
+  background: #f0f7fc;
+}
+
+.tab {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #6b87a2;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tab:hover:not(.active) {
+  background: #e2f0fa;
+  color: #2e7bcf;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #2e7bcf 0%, #1a5aa8 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+}
+
+/* ── Form ──────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.form input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #dde8f2;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #0d2b4e;
+  background: #f5f9fd;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+
+.form input::placeholder {
+  color: #9ab2c8;
+  font-weight: 400;
+}
+
+.form input:focus {
+  border-color: #3a8fd4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(58, 143, 212, 0.14);
+}
+
+/* OTP input — centered, larger digits */
+.form input[maxLength="6"] {
+  text-align: center;
+  letter-spacing: 6px;
+  font-size: 1.2rem;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  color: #1a5aa8;
+  padding: 14px 16px;
+}
+
+/* ── Submit Button ─────────────────────────────────────────── */
+.form button[type='submit'] {
+  margin-top: 4px;
+  padding: 13px;
+  background: linear-gradient(135deg, #2e7bcf 0%, #1a5aa8 100%);
+  color: #ffffff;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(30, 90, 195, 0.28);
+}
+
+.form button[type='submit']:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 90, 195, 0.36);
+}
+
+.form button[type='submit']:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.form button[type='submit']:disabled {
+  background: linear-gradient(135deg, #9ab5d4 0%, #7a9fc0 100%);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Feedback Messages ─────────────────────────────────────── */
+.form .error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  background: #fff0ef;
+  border: 1px solid #f5c6c2;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin: 0;
+  text-align: center;
+}
+
+.form .success {
+  font-size: 0.82rem;
+  color: #1a6e3c;
+  background: #edfaf3;
+  border: 1px solid #b2dfc5;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Helper Text ───────────────────────────────────────────── */
+.form .small {
+  font-size: 0.82rem;
+  color: #6b87a2;
+  margin: 0;
+  text-align: center;
+}
+
+.form .small strong {
+  color: #0d2b4e;
+  font-weight: 600;
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+.form .link {
+  color: #2e7bcf;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.form .link:hover {
+  color: #1a5aa8;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .login-container {
+    padding: 32px 24px 40px;
+    border-radius: 16px;
+  }
+
+  .login-container h2 {
+    font-size: 1.4rem;
+  }
+}
