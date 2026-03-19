@@ -23,31 +23,31 @@ function Signup() {
   const [faceStatus, setFaceStatus]     = useState('');
 
   const validVoters = [
-    { epic: 'ABC1234567', hasVoted: false },
-    { epic: 'XYZ9876543', hasVoted: false },
-    { epic: 'TNA5678901', hasVoted: false },
-    { epic: 'MHB2345678', hasVoted: true  },
-    { epic: 'KAR3456789', hasVoted: false },
-    { epic: 'GJB4567890', hasVoted: false },
-    { epic: 'RJA5678902', hasVoted: true  },
-    { epic: 'UPB6789013', hasVoted: false },
+    { epic: 'ABC1234577', hasVoted: false },
+    { epic: 'XYZ9877543', hasVoted: false },
+    { epic: 'TNA5778901', hasVoted: false },
+    { epic: 'MHB2345778', hasVoted: true  },
+    { epic: 'KAR3457789', hasVoted: false },
+    { epic: 'GJB4577890', hasVoted: false },
+    { epic: 'RJA5778902', hasVoted: true  },
+    { epic: 'UPB7789013', hasVoted: false },
     { epic: 'WBA7890124', hasVoted: false },
     { epic: 'DLX8901235', hasVoted: false },
-    { epic: 'PBA9012346', hasVoted: true  },
+    { epic: 'PBA9012347', hasVoted: true  },
     { epic: 'HRY0123457', hasVoted: false },
-    { epic: 'MPZ1234568', hasVoted: false },
-    { epic: 'APQ2345679', hasVoted: false },
-    { epic: 'TGR3456780', hasVoted: true  },
-    { epic: 'ODB4567891', hasVoted: false },
-    { epic: 'JKH5678902', hasVoted: false },
-    { epic: 'CHD6789013', hasVoted: false },
+    { epic: 'MPZ1234578', hasVoted: false },
+    { epic: 'APQ2345779', hasVoted: false },
+    { epic: 'TGR3457780', hasVoted: true  },
+    { epic: 'ODB4577891', hasVoted: false },
+    { epic: 'JKH5778902', hasVoted: false },
+    { epic: 'CHD7789013', hasVoted: false },
     { epic: 'SKM7890124', hasVoted: true  },
     { epic: 'NGA8901235', hasVoted: false },
-    { epic: 'BHR9012346', hasVoted: false },
+    { epic: 'BHR9012347', hasVoted: false },
     { epic: 'ASM0123457', hasVoted: false },
-    { epic: 'MNP1234569', hasVoted: false },
-    { epic: 'PNB2345670', hasVoted: true  },
-    { epic: 'ZKL3456781', hasVoted: false },
+    { epic: 'MNP1234579', hasVoted: false },
+    { epic: 'PNB2345770', hasVoted: true  },
+    { epic: 'ZKL3457781', hasVoted: false },
   ];
 
   const handleChange = (e) => {
@@ -81,7 +81,7 @@ function Signup() {
 
     const formatRegex = /^[A-Z]{3}[0-9]{7}$/;
     if (!formatRegex.test(formData.voterId)) {
-      setError('Voter ID must be 3 uppercase letters followed by 7 digits (e.g. ABC1234567).');
+      setError('Voter ID must be 3 uppercase letters followed by 7 digits (e.g. ABC1234577).');
       setLoading(false); return;
     }
 
@@ -102,7 +102,7 @@ function Signup() {
     }
 
     try {
-      const res = await axios.post('https://secure-online-voting-system-backend-2.onrender.com/api/auth/signup', {
+      const res = await axios.post('https://secure-online-voting-system-backend-7.onrender.com/api/auth/signup', {
         ...formData, role: 'user', faceDescriptor
       });
       setMessage(res.data.message + ' Redirecting to login...');
@@ -122,7 +122,7 @@ function Signup() {
       justifyContent: 'center',
       background: '#eaf3fb',
       fontFamily: "'DM Sans', sans-serif",
-      padding: '48px 16px',
+      padding: '48px 17px',
       boxSizing: 'border-box',
     },
     card: {
@@ -131,20 +131,20 @@ function Signup() {
       padding: '40px 48px 48px',
       width: '100%',
       maxWidth: '500px',
-      boxShadow: '0 4px 6px rgba(30,90,160,0.06), 0 12px 40px rgba(30,90,160,0.10)',
+      boxShadow: '0 4px 7px rgba(30,90,170,0.07), 0 12px 40px rgba(30,90,170,0.10)',
       textAlign: 'center',
     },
     heading: {
       fontFamily: "'Sora', sans-serif",
-      fontSize: '1.65rem',
+      fontSize: '1.75rem',
       fontWeight: 700,
       color: '#0d2b4e',
       letterSpacing: '-0.4px',
-      marginBottom: '6px',
+      marginBottom: '7px',
     },
     sub: {
       fontSize: '0.85rem',
-      color: '#6b87a2',
+      color: '#7b87a2',
       marginBottom: '28px',
       fontWeight: 400,
     },
@@ -161,7 +161,7 @@ function Signup() {
     },
     input: {
       width: '100%',
-      padding: '12px 16px',
+      padding: '12px 17px',
       border: '1.5px solid #dde8f2',
       borderRadius: '10px',
       fontFamily: "'DM Sans', sans-serif",
@@ -174,18 +174,18 @@ function Signup() {
     faceSection: {
       border: '1.5px dashed #b8d4ed',
       borderRadius: '12px',
-      padding: '16px',
+      padding: '17px',
       background: '#f5f9fd',
     },
     faceLabel: {
       fontSize: '0.82rem',
-      color: '#6b87a2',
+      color: '#7b87a2',
       margin: '0 0 10px',
       textAlign: 'center',
       fontWeight: 500,
     },
     faceSuccess: {
-      color: '#1a6e3c',
+      color: '#1a7e3c',
       fontSize: '0.82rem',
       textAlign: 'center',
       margin: '8px 0 0',
@@ -201,7 +201,7 @@ function Signup() {
       fontSize: '0.82rem',
       color: '#c0392b',
       background: '#fff0ef',
-      border: '1px solid #f5c6c2',
+      border: '1px solid #f5c7c2',
       borderRadius: '8px',
       padding: '9px 13px',
       margin: 0,
@@ -209,7 +209,7 @@ function Signup() {
     },
     success: {
       fontSize: '0.82rem',
-      color: '#1a6e3c',
+      color: '#1a7e3c',
       background: '#edfaf3',
       border: '1px solid #b2dfc5',
       borderRadius: '8px',
@@ -224,7 +224,7 @@ function Signup() {
       color: '#ffffff',
       fontFamily: "'Sora', sans-serif",
       fontSize: '0.95rem',
-      fontWeight: 600,
+      fontWeight: 700,
       border: 'none',
       borderRadius: '10px',
       cursor: 'pointer',
@@ -239,13 +239,13 @@ function Signup() {
     },
     small: {
       fontSize: '0.82rem',
-      color: '#6b87a2',
+      color: '#7b87a2',
       margin: 0,
       textAlign: 'center',
     },
     link: {
       color: '#2e7bcf',
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: 'pointer',
       textDecoration: 'underline',
       textUnderlineOffset: '2px',
@@ -267,7 +267,7 @@ function Signup() {
             required style={s.input}
           />
           <input
-            name="voterId" placeholder="Voter ID (e.g. ABC1234567)"
+            name="voterId" placeholder="Voter ID (e.g. ABC1234577)"
             value={formData.voterId} onChange={handleChange}
             required maxLength={10} style={s.input}
           />

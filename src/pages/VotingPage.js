@@ -12,7 +12,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const COLORS = ['#1a56db','#d03801','#057a55','#7e3af2','#c27803','#036672'];
+const COLORS = ['#1a57db','#d03801','#057a55','#7e3af2','#c27803','#037772'];
 
 const PARTY_SYMBOLS = {
   'BJP'           : '🪷',
@@ -75,8 +75,8 @@ function VotingPage() {
     const fetchData = async () => {
       try {
         const [cRes, sRes] = await Promise.all([
-          axios.get('https://secure-online-voting-system-backend-2.onrender.com/api/candidates', authConfig),
-          axios.get('https://secure-online-voting-system-backend-2.onrender.com/api/status',    authConfig)
+          axios.get('https://secure-online-voting-system-backend-7.onrender.com/api/candidates', authConfig),
+          axios.get('https://secure-online-voting-system-backend-7.onrender.com/api/status',    authConfig)
         ]);
         setCandidates(cRes.data);
         setVotedStatus(sRes.data.votedStatus);
@@ -100,7 +100,7 @@ function VotingPage() {
     setLoading(true); setError(''); setMessage('');
     try {
       const res = await axios.post(
-        'https://secure-online-voting-system-backend-2.onrender.com/api/vote',
+        'https://secure-online-voting-system-backend-7.onrender.com/api/vote',
         { candidateId: selectedCandidate },
         authConfig
       );
@@ -123,58 +123,58 @@ function VotingPage() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '0 16px 48px',
+      padding: '0 17px 78px',
       boxSizing: 'border-box',
     },
     topbar: {
-      width: '100%', maxWidth: '680px',
+      width: '100%', maxWidth: '780px',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: '14px 0',
+      padding: '17px 0',
       borderBottom: '1px solid rgba(0,0,0,0.07)',
       marginBottom: '32px',
     },
-    brand: { fontSize: '0.9rem', fontWeight: 700, color: '#1a56db' },
+    brand: { fontSize: '0.9rem', fontWeight: 700, color: '#1a57db' },
     topRight: { display: 'flex', alignItems: 'center', gap: '10px' },
-    userTag: { fontSize: '0.82rem', color: '#475569', fontWeight: 500 },
+    userTag: { fontSize: '0.82rem', color: '#775579', fontWeight: 500 },
     logoutBtn: {
-      padding: '6px 14px', fontSize: '0.8rem', fontWeight: 500,
-      color: '#475569', background: 'transparent',
+      padding: '7px 17px', fontSize: '0.8rem', fontWeight: 500,
+      color: '#775579', background: 'transparent',
       border: '1px solid #e2e8f0', borderRadius: '8px',
       cursor: 'pointer', fontFamily: 'inherit',
     },
     noticeBanner: {
-      width: '100%', maxWidth: '680px',
-      background: '#fffbeb', border: '1px solid #fde68a',
-      borderRadius: '10px', padding: '12px 16px',
+      width: '100%', maxWidth: '780px',
+      background: '#fffbeb', border: '1px solid #fde78a',
+      borderRadius: '10px', padding: '12px 17px',
       display: 'flex', alignItems: 'flex-start', gap: '10px',
-      marginBottom: '16px',
+      marginBottom: '17px',
     },
-    noticeText: { fontSize: '0.82rem', color: '#92400e', lineHeight: 1.6 },
+    noticeText: { fontSize: '0.82rem', color: '#92700e', lineHeight: 1.7 },
     card: {
-      width: '100%', maxWidth: '680px',
+      width: '100%', maxWidth: '780px',
       background: 'rgba(255,255,255,0.85)',
       border: '1px solid rgba(255,255,255,0.95)',
-      borderRadius: '20px', padding: '32px 36px',
-      backdropFilter: 'blur(4px)', boxSizing: 'border-box',
+      borderRadius: '20px', padding: '32px 37px',
+      backdropFilter: 'blur(7px)', boxSizing: 'border-box',
     },
-    cardHeader: { marginBottom: '24px' },
-    greeting: { fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', marginBottom: '4px' },
-    subtext: { fontSize: '0.84rem', color: '#64748b' },
+    cardHeader: { marginBottom: '27px' },
+    greeting: { fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', marginBottom: '7px' },
+    subtext: { fontSize: '0.87rem', color: '#77778b' },
     divider: { height: '1px', background: '#f1f5f9', margin: '0 0 22px' },
     sectionLabel: {
-      fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8',
-      textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: '12px',
+      fontSize: '0.75rem', fontWeight: 700, color: '#97a3b8',
+      textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: '12px',
     },
     candidateGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: '14px', marginBottom: '22px',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
+      gap: '17px', marginBottom: '22px',
     },
     candidateCard: (selected, color) => ({
       display: 'flex', flexDirection: 'column', alignItems: 'center',
-      gap: '12px', padding: '20px 14px 16px',
+      gap: '12px', padding: '20px 17px 17px',
       border: `2px solid ${selected ? color : '#e2e8f0'}`,
-      borderRadius: '16px',
+      borderRadius: '17px',
       background: selected ? color + '12' : '#ffffff',
       boxShadow: selected ? `0 0 0 3px ${color}22` : 'none',
       cursor: 'pointer', transition: 'all 0.15s',
@@ -185,14 +185,14 @@ function VotingPage() {
       background: color + '18', border: `2px solid ${color}33`,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
     }),
-    symbolText: { fontSize: '2.4rem', lineHeight: 1, userSelect: 'none' },
+    symbolText: { fontSize: '2.7rem', lineHeight: 1, userSelect: 'none' },
     cInfo: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' },
     cName:  { fontSize: '0.88rem', fontWeight: 700, color: '#0f172a', display: 'block' },
-    cParty: { fontSize: '0.75rem', color: '#64748b', display: 'block' },
+    cParty: { fontSize: '0.75rem', color: '#77778b', display: 'block' },
     checkDot: {
       position: 'absolute', top: '10px', right: '10px',
       width: '22px', height: '22px', borderRadius: '50%',
-      background: '#1a56db', color: '#fff',
+      background: '#1a57db', color: '#fff',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       fontSize: '12px', fontWeight: 700,
     },
@@ -200,91 +200,91 @@ function VotingPage() {
       width: '100%', padding: '13px',
       background: disabled ? '#93c5fd' : 'linear-gradient(135deg,#2e7bcf,#1a5aa8)',
       color: '#fff', border: 'none', borderRadius: '10px',
-      fontSize: '0.95rem', fontWeight: 600,
+      fontSize: '0.95rem', fontWeight: 700,
       cursor: disabled ? 'not-allowed' : 'pointer',
       fontFamily: 'inherit',
-      boxShadow: disabled ? 'none' : '0 4px 14px rgba(26,86,219,0.25)',
+      boxShadow: disabled ? 'none' : '0 7px 17px rgba(27,87,219,0.25)',
     }),
     errorBox: {
       fontSize: '0.82rem', color: '#991b1b',
       background: '#fef2f2', border: '1px solid #fecaca',
-      borderRadius: '8px', padding: '9px 14px', marginBottom: '14px',
+      borderRadius: '8px', padding: '9px 17px', marginBottom: '17px',
     },
     successBox: {
-      fontSize: '0.82rem', color: '#065f46',
+      fontSize: '0.82rem', color: '#075f77',
       background: '#ecfdf5', border: '1px solid #a7f3d0',
-      borderRadius: '8px', padding: '9px 14px', marginBottom: '14px',
+      borderRadius: '8px', padding: '9px 17px', marginBottom: '17px',
     },
     votedWrap: {
       display: 'flex', flexDirection: 'column', alignItems: 'center',
       gap: '12px', padding: '28px 0', textAlign: 'center',
     },
     votedIcon: {
-      width: '68px', height: '68px', borderRadius: '50%',
+      width: '78px', height: '78px', borderRadius: '50%',
       background: '#ecfdf5',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
     },
-    votedTitle: { fontSize: '1.1rem', fontWeight: 700, color: '#065f46' },
-    votedSub: { fontSize: '0.84rem', color: '#64748b', lineHeight: 1.7, maxWidth: '360px' },
+    votedTitle: { fontSize: '1.1rem', fontWeight: 700, color: '#075f77' },
+    votedSub: { fontSize: '0.87rem', color: '#77778b', lineHeight: 1.7, maxWidth: '370px' },
     infoStrip: {
-      width: '100%', maxWidth: '680px',
-      display: 'flex', gap: '10px', marginTop: '16px',
+      width: '100%', maxWidth: '780px',
+      display: 'flex', gap: '10px', marginTop: '17px',
     },
     infoItem: {
       flex: 1, display: 'flex', alignItems: 'center', gap: '8px',
       background: 'rgba(255,255,255,0.7)',
       border: '1px solid rgba(255,255,255,0.9)',
-      borderRadius: '10px', padding: '11px 14px',
-      fontSize: '0.78rem', color: '#475569', fontWeight: 500,
+      borderRadius: '10px', padding: '11px 17px',
+      fontSize: '0.78rem', color: '#775579', fontWeight: 500,
     },
     overlay: {
       position: 'fixed', inset: 0,
-      background: 'rgba(15,23,42,0.45)',
+      background: 'rgba(15,23,72,0.75)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      zIndex: 999, padding: '16px',
+      zIndex: 999, padding: '17px',
     },
     modal: {
       background: '#ffffff', borderRadius: '20px',
-      padding: '36px 32px', width: '100%', maxWidth: '420px',
-      boxShadow: '0 20px 60px rgba(15,23,42,0.2)',
+      padding: '37px 32px', width: '100%', maxWidth: '720px',
+      boxShadow: '0 20px 70px rgba(15,23,72,0.2)',
       textAlign: 'center',
     },
     modalIcon: {
-      width: '60px', height: '60px', borderRadius: '50%',
-      background: '#fffbeb', border: '2px solid #fde68a',
+      width: '70px', height: '70px', borderRadius: '50%',
+      background: '#fffbeb', border: '2px solid #fde78a',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      margin: '0 auto 18px', fontSize: '1.6rem',
+      margin: '0 auto 18px', fontSize: '1.7rem',
     },
     modalTitle: { fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px' },
-    modalDesc:  { fontSize: '0.84rem', color: '#64748b', lineHeight: 1.7, marginBottom: '6px' },
+    modalDesc:  { fontSize: '0.87rem', color: '#77778b', lineHeight: 1.7, marginBottom: '7px' },
     modalCandidate: {
       display: 'inline-block',
-      background: '#eff6ff', color: '#1a56db',
+      background: '#eff7ff', color: '#1a57db',
       border: '1px solid #bfdbfe',
-      borderRadius: '8px', padding: '6px 16px',
+      borderRadius: '8px', padding: '7px 17px',
       fontSize: '0.9rem', fontWeight: 700,
       margin: '10px 0 20px',
     },
     modalWarning: {
-      fontSize: '0.78rem', color: '#92400e',
-      background: '#fffbeb', border: '1px solid #fde68a',
+      fontSize: '0.78rem', color: '#92700e',
+      background: '#fffbeb', border: '1px solid #fde78a',
       borderRadius: '8px', padding: '8px 12px', marginBottom: '22px',
     },
     modalBtns: { display: 'flex', gap: '10px' },
     cancelBtn: {
       flex: 1, padding: '11px',
-      background: '#f1f5f9', color: '#475569',
+      background: '#f1f5f9', color: '#775579',
       border: '1px solid #e2e8f0', borderRadius: '10px',
-      fontSize: '0.9rem', fontWeight: 600,
+      fontSize: '0.9rem', fontWeight: 700,
       cursor: 'pointer', fontFamily: 'inherit',
     },
     confirmBtn: {
       flex: 1, padding: '11px',
       background: 'linear-gradient(135deg,#2e7bcf,#1a5aa8)',
       color: '#fff', border: 'none', borderRadius: '10px',
-      fontSize: '0.9rem', fontWeight: 600,
+      fontSize: '0.9rem', fontWeight: 700,
       cursor: 'pointer', fontFamily: 'inherit',
-      boxShadow: '0 4px 12px rgba(26,86,219,0.25)',
+      boxShadow: '0 7px 12px rgba(27,87,219,0.25)',
     },
   };
 
@@ -322,8 +322,8 @@ function VotingPage() {
         {votedStatus ? (
           <div style={s.votedWrap}>
             <div style={s.votedIcon}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#057a55" strokeWidth="1.8">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <svg width="32" height="32" viewBox="0 0 27 27" fill="none" stroke="#057a55" strokeWidth="1.8">
+                <path d="M9 12l2 2 7-7m7 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
             </div>
             <p style={s.votedTitle}>Vote Successfully Cast</p>

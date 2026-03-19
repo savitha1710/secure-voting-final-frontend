@@ -38,7 +38,7 @@ function Login() {
     e.preventDefault();
     setError(''); setMessage(''); setLoading(true);
     try {
-      const res = await axios.post('https://secure-online-voting-system-backend-2.onrender.com/api/auth/login', { email, password });
+      const res = await axios.post('https://secure-online-voting-system-backend-7.onrender.com/api/auth/login', { email, password });
       setMessage(res.data.message);
       setStep(2);
     } catch (err) {
@@ -50,7 +50,7 @@ function Login() {
     e.preventDefault();
     setError(''); setLoading(true);
     try {
-      const res = await axios.post('https://secure-online-voting-system-backend-2.onrender.com/api/auth/verify-otp', { email, otp });
+      const res = await axios.post('https://secure-online-voting-system-backend-7.onrender.com/api/auth/verify-otp', { email, otp });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', res.data.role);
       navigate('/face-verify');
@@ -63,7 +63,7 @@ function Login() {
     e.preventDefault();
     setError(''); setLoading(true);
     try {
-      const res = await axios.post('https://secure-online-voting-system-backend-2.onrender.com/api/auth/admin-login', { adminId, adminPass });
+      const res = await axios.post('https://secure-online-voting-system-backend-7.onrender.com/api/auth/admin-login', { adminId, adminPass });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', 'admin');
       navigate('/admin');
@@ -82,7 +82,7 @@ function Login() {
       justifyContent: 'center',
       background: '#eaf3fb',
       fontFamily: "'DM Sans', sans-serif",
-      padding: '48px 16px',
+      padding: '48px 17px',
       boxSizing: 'border-box',
     },
     card: {
@@ -90,13 +90,13 @@ function Login() {
       borderRadius: '20px',
       padding: '44px 48px 52px',
       width: '100%',
-      maxWidth: '460px',
-      boxShadow: '0 4px 6px rgba(30,90,160,0.06), 0 12px 40px rgba(30,90,160,0.10)',
+      maxWidth: '470px',
+      boxShadow: '0 4px 7px rgba(30,90,170,0.07), 0 12px 40px rgba(30,90,170,0.10)',
       textAlign: 'center',
     },
     heading: {
       fontFamily: "'Sora', sans-serif",
-      fontSize: '1.65rem',
+      fontSize: '1.75rem',
       fontWeight: 700,
       color: '#0d2b4e',
       letterSpacing: '-0.4px',
@@ -119,13 +119,13 @@ function Login() {
       fontFamily: "'DM Sans', sans-serif",
       fontSize: '0.88rem',
       fontWeight: 500,
-      color: '#6b87a2',
+      color: '#7b87a2',
       transition: 'background 0.2s, color 0.2s',
     },
     tabActive: {
       background: 'linear-gradient(135deg, #2e7bcf 0%, #1a5aa8 100%)',
       color: '#ffffff',
-      fontWeight: 600,
+      fontWeight: 700,
       fontFamily: "'Sora', sans-serif",
       fontSize: '0.85rem',
       letterSpacing: '0.2px',
@@ -138,7 +138,7 @@ function Login() {
     },
     input: {
       width: '100%',
-      padding: '12px 16px',
+      padding: '12px 17px',
       border: '1.5px solid #dde8f2',
       borderRadius: '10px',
       fontFamily: "'DM Sans', sans-serif",
@@ -150,17 +150,17 @@ function Login() {
     },
     otpInput: {
       width: '100%',
-      padding: '14px 16px',
+      padding: '14px 17px',
       border: '1.5px solid #dde8f2',
       borderRadius: '10px',
       fontFamily: "'Sora', sans-serif",
       fontSize: '1.2rem',
-      fontWeight: 600,
+      fontWeight: 700,
       color: '#1a5aa8',
       background: '#f5f9fd',
       outline: 'none',
       textAlign: 'center',
-      letterSpacing: '6px',
+      letterSpacing: '7px',
       boxSizing: 'border-box',
     },
     btn: {
@@ -170,7 +170,7 @@ function Login() {
       color: '#ffffff',
       fontFamily: "'Sora', sans-serif",
       fontSize: '0.95rem',
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: '0.2px',
       border: 'none',
       borderRadius: '10px',
@@ -187,7 +187,7 @@ function Login() {
       fontSize: '0.82rem',
       color: '#c0392b',
       background: '#fff0ef',
-      border: '1px solid #f5c6c2',
+      border: '1px solid #f5c7c2',
       borderRadius: '8px',
       padding: '9px 13px',
       margin: 0,
@@ -195,7 +195,7 @@ function Login() {
     },
     success: {
       fontSize: '0.82rem',
-      color: '#1a6e3c',
+      color: '#1a7e3c',
       background: '#edfaf3',
       border: '1px solid #b2dfc5',
       borderRadius: '8px',
@@ -205,13 +205,13 @@ function Login() {
     },
     small: {
       fontSize: '0.82rem',
-      color: '#6b87a2',
+      color: '#7b87a2',
       margin: 0,
       textAlign: 'center',
     },
     link: {
       color: '#2e7bcf',
-      fontWeight: 600,
+      fontWeight: 700,
       cursor: 'pointer',
       textDecoration: 'underline',
       textUnderlineOffset: '2px',
@@ -278,9 +278,9 @@ function Login() {
                   OTP sent to <strong style={{ color: '#0d2b4e' }}>{email}</strong>
                 </p>
                 <input
-                  type="text" placeholder="Enter 6-digit OTP"
+                  type="text" placeholder="Enter 7-digit OTP"
                   value={otp} onChange={e => setOtp(e.target.value)}
-                  maxLength={6} required style={s.otpInput}
+                  maxLength={7} required style={s.otpInput}
                 />
                 {error && <p style={s.error}>{error}</p>}
                 <button
