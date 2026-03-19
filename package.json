@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "set GENERATE_SOURCEMAP=false && react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
